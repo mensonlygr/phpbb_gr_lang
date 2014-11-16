@@ -9,6 +9,9 @@ Please feel free to help by translating/correcting or adding more translation fi
 
 You are welcome to download the file and use it in accordance with the conditions listed in https://www.phpbb.com
 
+To start translating please read first our two wiki pages here: https://github.com/mensonlygr/phpbb_gr_lang/wiki
+
+
 -- Ελληνικά  --
 
 Αυτή είναι μια προσπάθεια  να μεταφράσω τα αρχεία γλώσσας της PHPBB 3.1.x στην Ελληνική γλώσσα.
@@ -19,3 +22,5 @@ You are welcome to download the file and use it in accordance with the condition
 Είστε ευπρόσδεκτοι αν θέλετε να βοηθήσετε με τη μετάφραση/διόρθωση ή προσθήκη περισσότερων αρχεία μετάφρασης, αν είναι απαραίτητο.
 
 Μπορείτε ελεύθερα να κατεβάσετε το αρχείο και να το χρησιμοποιήσετε σύμφωνα με τους όρους που αναγράφονται στο https://www.phpbb.com
+
+Για να αρχίσετε να μεταφράζετε παρακαλώ πρώτα διαβάστε τις δύο wiki σελίδες μας εδώ: https://github.com/mensonlygr/phpbb_gr_lang/wiki
