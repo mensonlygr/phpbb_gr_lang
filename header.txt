@@ -1,0 +1,13 @@
+/** 
+*
+* acp_attachments [Greek - El]
+*
+* @package language
+* @version $Id: permissions.php 11617 2011-12-08 21:30:13Z git-gate $
+* @copyright (c) 2005 phpBB Group 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+*
+* Ελληνική μετάφραση από την ομάδα του phpbbgr.com με πιθανές μετατροπές από mens-only.gr:
+* (http://phpbbgr.com/team/)
+*
+/**
