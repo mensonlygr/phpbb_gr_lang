@@ -1,6 +1,6 @@
 /** 
 *
-* acp_attachments [Greek - El]
+* filename [Greek - El]
 *
 * @package language
 * @version $Id: permissions.php 11617 2011-12-08 21:30:13Z git-gate $
