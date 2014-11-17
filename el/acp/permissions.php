@@ -11,8 +11,6 @@
 * Ελληνική μετάφραση από την ομάδα του phpbbgr.com:
 * (http://phpbbgr.com/team/)
 *
-*/
-
 /**
 * DO NOT CHANGE
 */
