@@ -8,7 +8,7 @@
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
-* Ελληνική μετάφραση από την ομάδα του phpbbgr.com:
+* Ελληνική μετάφραση από την ομάδα του phpbbgr.com με πιθανές μετατροπές από mens-only.gr:
 * (http://phpbbgr.com/team/)
 *
 */

@@ -1,16 +1,16 @@
 <?php
-/**
+/** 
 *
-* This file is part of the phpBB Forum Software package.
+* acp_attachments [Greek - El]
 *
-* @copyright (c) phpBB Limited <https://www.phpbb.com>
-* @license GNU General Public License, version 2 (GPL-2.0)
+* @package language
+* @version $Id: permissions.php 11617 2011-12-08 21:30:13Z git-gate $
+* @copyright (c) 2005 phpBB Group 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
-* For full copyright and license information, please see
-* the docs/CREDITS.txt file.
+* Ελληνική μετάφραση από την ομάδα του phpbbgr.com με πιθανές μετατροπές από mens-only.gr:
+* (http://phpbbgr.com/team/)
 *
-*/
-
 /**
 * DO NOT CHANGE
 */
