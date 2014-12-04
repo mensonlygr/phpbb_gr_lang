@@ -430,9 +430,15 @@ $lang = array_merge($lang, array(
 	'OFFLINE'				=> 'Χωρίς σύνδεση',
 	'ONLINE'				=> 'Σε σύνδεση',
 	'ONLINE_BUDDIES'			=> 'Σε σύνδεση φίλοι',
-	'ONLINE_USERS_TOTAL'			=> 'Συνολικά υπάρχουν <strong>%d</strong> μέλη συνδεδεμένα: ',
-	'ONLINE_USERS_ZERO_TOTAL'		=> 'Συνολικά υπάρχουν <strong>0</strong> μέλη συνδεδεμένα: ',
-	'ONLINE_USER_TOTAL'			=> 'Συνολικά υπάρχει <strong>%d</strong> μέλος συνδεδεμένο: ',
+	'ONLINE_USERS_TOTAL'			=> array(
+		1				=> 'Συνολικά υπάρχει <strong>%1$d</strong> χρήστης online :: %2$s and %3$s',
+		2				=> 'Συνολικά υπάρχoυν <strong>%1$d</strong> χρήστες online :: %2$s and %3$s',
+	),
+	// "... :: x registered, y hidden and z guests"
+	'ONLINE_USERS_TOTAL_GUESTS'		=> array(
+		1				=> 'Συνολικά υπάρχoυν <strong>%1$d</strong> χρήστης online :: %2$s, %3$s and %4$s',
+		2				=> 'Συνολικά υπάρχoυν <strong>%1$d</strong> χρήστες online :: %2$s, %3$s and %4$s',
+	),
 	'OPTIONS'				=> 'Επιλογές',
 
 	'PAGE_OF'				=> 'Σελίδα <strong>%1$d</strong> από <strong>%2$d</strong>',
@@ -654,13 +660,20 @@ $lang = array_merge($lang, array(
 	'TOTAL_PM'			=> '1 προσωπικά μηνύματα συνολικά',
 	'TOTAL_PMS'			=> '$d προσωπικά μηνύματα συνολικά',
 	'TOTAL_POSTS'			=> 'Συνολικές δημοσιεύσεις',
-	'TOTAL_POSTS_COUNT		=> array(
-                2       => 'Συνολικές δημοσιεύσεις <strong>%d</strong>',
-        ),
-	'TOTAL_POSTS_OTHER'	=> 'Συνολικές δημοσιεύσεις <strong>%d</strong>',
-	'TOTAL_POSTS_ZERO'	=> 'Συνολικές δημοσιεύσεις <strong>0</strong>',
-	'TOTAL_TOPICS'          => array(
-                2       => 'Συνολικά θέματα <strong>%d</strong>',
+	'TOTAL_POSTS_COUNT'		=> array(
+		2			=> 'Σύνολο δημοσιεύσεων <strong>%d</strong>',
+	),
+	'TOPIC_REPORTED'		=> 'Εχει γίνει αναφορά στο θέμα αυτο',
+	'TOTAL_TOPICS'			=> array(
+		2			=> 'Σύνολο θεμάτων <strong>%d</strong>',
+	),
+	'TOTAL_USERS'			=> array(
+		2			=> 'Σύνολο μελών <strong>%d</strong>',
+	),
+	'TOTAL_POSTS_OTHER'		=> 'Συνολικές δημοσιεύσεις <strong>%d</strong>',
+	'TOTAL_POSTS_ZERO'		=> 'Συνολικές δημοσιεύσεις <strong>0</strong>',
+	'TOTAL_TOPICS'          	=> array(
+                			=> 'Συνολικά θέματα <strong>%d</strong>',
         ),
 	'TOTAL_USERS'           => array(
                 2       => 'Συνολικά μέλη <strong>%d</strong>',
