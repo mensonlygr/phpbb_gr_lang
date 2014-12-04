@@ -42,7 +42,7 @@ $lang = array_merge($lang, array(
 	'ACTIVE_TOPICS'			=> 'Ενεργά θέματα',
 	'ANNOUNCEMENTS'			=> 'Ανακοινώσεις',
 	
-		'FORUM_PERMISSIONS'		=> 'Προσβάσεις σε αυτή τη Δ. Συζήτηση',
+	'FORUM_PERMISSIONS'		=> 'Προσβάσεις σε αυτή τη Δ. Συζήτηση',
 	
 	'ICON_ANNOUNCEMENT'		=> 'Ανακοίνωση',
 	'ICON_STICKY'			=> 'Σημείωση',
@@ -50,8 +50,7 @@ $lang = array_merge($lang, array(
 	'LOGIN_NOTIFY_FORUM'	=> 'Έχετε ειδοποιηθεί για αυτή την Δ. Συζήτηση παρακαλώ συνδεθείτε για να δείτε αυτό.',
 
 	'MARK_TOPICS_READ'		=> 'Σημειώστε τις Θ. Ενότητες αναγνωσμένες ',
-	'MOVED_TOPIC'			=> 'Μετακίνηση Θέματος',
-
+	
 	'NEW_POSTS_HOT'			=> 'Νέες δημοσιεύσεις [ Κορυφαίο Θέμα ]', // Not used anymore
 	'NEW_POSTS_LOCKED'		=> 'Νέες δημοσιεύσεις [ Κλειδωμένο ]', // Not used anymore
 	'NO_NEW_POSTS_HOT'		=> 'Δεν υπάρχουν νέες δημοσιεύσεις [ Κορυφαίο Θέμα ]', // Not used anymore
@@ -68,8 +67,10 @@ $lang = array_merge($lang, array(
 	'UNREAD_POSTS_LOCKED'	=> 'Μη  αναγνωσμένες δημοσιεύσεις [ Κλειδωμένο ]',
 
 	'VIEW_FORUM'			=> 'Προβολή Δ. Συζήτησης',
-	'VIEW_FORUM_TOPIC'		=> '1 Θ. Ενότητα',
-	'VIEW_FORUM_TOPICS'		=> '%d Θ. Ενότητες',
+	'VIEW_FORUM_TOPICS'		=> array(
+		1	=> '%d Θ. Ενότητα',
+		2	=> '%d Θ. Ενότητες',
+	),	
 ));
 
 ?>
