@@ -7,10 +7,8 @@
 * @version $Id$
 * @copyright (c) 2005 phpBB Group 
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
-*
 * Ελληνική μετάφραση από την ομάδα του phpbbgr.com:
 * (http://phpbbgr.com/team/)
-*
 */
 
 /**
@@ -94,7 +92,7 @@ $lang = array_merge($lang, array(
 	'POLL_ENDED_AT'			=> 'Το δημοψήφισμα λήγει στις %s',
 	'POLL_RUN_TILL'			=> 'Το δημοψήφισμα ισχύει μέχρι %s',
 	'POLL_VOTED_OPTION'		=> 'Ψηφίσατε για αυτήν την επιλογή',
-	'POST_DELETED_RESTORE'	=> 'Αυτό το θέμα έχει διαγραφεί. Μπορεί να επαναφερθεί.',
+	'POST_DELETED_RESTORE'	=> 'Αυτό το θέμα έχει διαγραφεί. Μπορεί να γίνει επαναφορά.',
 	'PRINT_TOPIC'			=> 'Προβολή εκτύπωσης',
 
 	'QUICK_MOD'				=> 'Γρήγορο εργαλείο',
@@ -127,4 +125,3 @@ $lang = array_merge($lang, array(
 
 ));
 
-?>
