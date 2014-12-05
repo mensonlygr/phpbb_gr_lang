@@ -38,47 +38,47 @@ if (empty($lang) || !is_array($lang))
 
 // Banning
 $lang = array_merge($lang, array(
-	'1_HOUR'		=> '1 hour',
-	'30_MINS'		=> '30 minutes',
-	'6_HOURS'		=> '6 hours',
+	'1_HOUR'			=> '1 Ώρα',
+	'30_MINS'			=> '30 Λεπτά',
+	'6_HOURS'			=> '6 Ώρες',
 
-	'ACP_BAN_EXPLAIN'	=> 'Here you can control the banning of users by name, IP or email address. These methods prevent a user reaching any part of the board. You can give a short (maximum 3000 characters) reason for the ban if you wish. This will be displayed in the admin log. The duration of a ban can also be specified. If you want the ban to end on a specific date rather than after a set time period select <span style="text-decoration: underline;">Until -&gt;</span> for the ban length and enter a date in <kbd>YYYY-MM-DD</kbd> format.',
+	'ACP_BAN_EXPLAIN'		=> 'Εδώ μπορείτε να χειριστείτε τον αποκλεισμό μελών μέσω ονόματος μέλους, IP ή διεύθυνση αλληλογραφίας. Αυτό αποτρέπει κάποιο μέλος να μπει σε οποιοδήποτε μέρος της Δ. Συζήτησης. Μπορείτε να εισάγετε ένα σύντομο λόγο (3000 χαρακτήρες μέγιστο) αποκλεισμού αν το επιθυμείτε. Αυτό θα εμφανίζεται στο Ιστορικό του διαχειριστή. Ο χρόνος αποκλεισμού μπορεί να καθοριστεί επίσης. Εάν θέλετε ο αποκλεισμός να τελειώσει σε μια συγκεκριμένη ημερομηνία μπορείτε να επιλέξετε τον χρόνο που θέλετε <span style="text-decoration: underline;">Μέχρι -&gt;</span> και εισάγετε την ημερομηνία σε μορφή <kbd>YYYY-MM-DD</kbd>.',
 
-	'BAN_EXCLUDE'			=> 'Exclude from banning',
-	'BAN_LENGTH'			=> 'Length of ban',
-	'BAN_REASON'			=> 'Reason for ban',
-	'BAN_GIVE_REASON'		=> 'Reason shown to the banned',
-	'BAN_UPDATE_SUCCESSFUL'	=> 'The banlist has been updated successfully.',
-	'BANNED_UNTIL_DATE'		=> 'until %s', // Example: "until Mon 13.Jul.2009, 14:44"
-	'BANNED_UNTIL_DURATION'	=> '%1$s (until %2$s)', // Example: "7 days (until Tue 14.Jul.2009, 14:44)"
+	'BAN_EXCLUDE'			=> 'Εξαίρεση από τον αποκλεισμό',
+	'BAN_LENGTH'			=> 'Διάρκεια αποκλεισμού',
+	'BAN_REASON'			=> 'Λόγος αποκλεισμού',
+	'BAN_GIVE_REASON'		=> 'Λόγος αποκλεισμού που θα κοινοποιηθεί στον αποκλεισμένο',
+	'BAN_UPDATE_SUCCESSFUL'		=> 'Η Λίστα αποκλεισμού ενημερώθηκε με επιτυχία.',
+	'BANNED_UNTIL_DATE'		=> 'μέχρι %s', // Example: "until Mon 13.Jul.2009, 14:44"
+	'BANNED_UNTIL_DURATION'		=> '%1$s (μέχρι %2$s)', // Example: "7 days (until Tue 14.Jul.2009, 14:44)"
 
-	'EMAIL_BAN'					=> 'Ban one or more email addresses',
-	'EMAIL_BAN_EXCLUDE_EXPLAIN'	=> 'Enable this to exclude the entered email address from all current bans.',
-	'EMAIL_BAN_EXPLAIN'			=> 'To specify more than one email address enter each on a new line. To match partial addresses use * as the wildcard, e.g. <samp>*@hotmail.com</samp>, <samp>*@*.domain.tld</samp>, etc.',
-	'EMAIL_NO_BANNED'			=> 'No banned email addresses',
-	'EMAIL_UNBAN'				=> 'Un-ban or un-exclude emails',
-	'EMAIL_UNBAN_EXPLAIN'		=> 'You can unban (or un-exclude) multiple email addresses in one go using the appropriate combination of mouse and keyboard for your computer and browser. Excluded email addresses are emphasised.',
+	'EMAIL_BAN'			=> 'Αποκλεισμός μίας ή περισσοτέρων διευθύνσεων αλληλογραφίας',
+	'EMAIL_BAN_EXCLUDE_EXPLAIN'	=> 'Επιλέξτε για εξαίρεση της εισαγόμενης διεύθυνσης αλληλογραφίας από όλους τους τρέχοντες αποκλεισμούς.',
+	'EMAIL_BAN_EXPLAIN'		=> 'Για περισσότερες από μια διευθύνσεις αλληλογραφίας βάλτε την κάθε μια σε διαφορετική γραμμή. Για αποκλεισμό διακομιστών αλληλογραφίας χρησιμοποιήστε * , π.χ. <samp>*@hotmail.com</samp>, <samp>*@*.domain.tld</samp>, κλπ.',
+	'EMAIL_NO_BANNED'		=> 'Δεν υπάρχουν αποκλεισμένες διευθύνσεις αλληλογραφίας',
+	'EMAIL_UNBAN'			=> 'Άρση αποκλεισμού ή απεπιλογή διευθύνσεων αλληλογραφίας',
+	'EMAIL_UNBAN_EXPLAIN'		=> 'Μπορείτε να άρετε τον αποκλεισμό (ή να απεπιλέξετε) περισσότερες από μια διευθύνσεις αλληλογραφίας χρησιμοποιώντας τον κατάλληλο συνδυασμό ποντικιού και πληκτρολογίου του υπολογιστή σας και του Πλοηγού σας. Οι εξαιρούμενες διευθύνσεις αλληλογραφίας θα είναι υπογραμμισμένες.',
 
-	'IP_BAN'					=> 'Ban one or more IPs',
-	'IP_BAN_EXCLUDE_EXPLAIN'	=> 'Enable this to exclude the entered IP from all current bans.',
-	'IP_BAN_EXPLAIN'			=> 'To specify several different IPs or hostnames enter each on a new line. To specify a range of IP addresses separate the start and end with a hyphen (-), to specify a wildcard use “*”.',
-	'IP_HOSTNAME'				=> 'IP addresses or hostnames',
-	'IP_NO_BANNED'				=> 'No banned IP addresses',
-	'IP_UNBAN'					=> 'Un-ban or un-exclude IPs',
-	'IP_UNBAN_EXPLAIN'			=> 'You can unban (or un-exclude) multiple IP addresses in one go using the appropriate combination of mouse and keyboard for your computer and browser. Excluded IPs are emphasised.',
+	'IP_BAN'			=> 'Αποκλεισμός μιας ή περισσοτέρων IP',
+	'IP_BAN_EXCLUDE_EXPLAIN'	=> 'Επιλέξτε για εξαίρεση της εισαγόμενης διεύθυνσης IP από όλους τους τρέχοντες αποκλεισμούς.',
+	'IP_BAN_EXPLAIN'		=> 'Για περισσότερες διευθύνσεις IPs ή κεντρικούς υπολογιστές βάλτε τα σε διαφορετική γραμμή το καθένα. Για εύρος διευθύνσεων IP χωρίστε της πρώτη και την τελευταία με μείον (-), για χαρακτήρα μπαλαντέρ βάλτε “*”.',
+	'IP_HOSTNAME'			=> 'Διευθύνσεις IP ή κεντρικούς υπολογιστές',
+	'IP_NO_BANNED'			=> 'Δεν υπάρχουν αποκλεισμένες Διευθύνσεις IP',
+	'IP_UNBAN'			=> 'Άρση αποκλεισμού ή απεπιλογή IP',
+	'IP_UNBAN_EXPLAIN'		=> 'Μπορείτε να άρετε τον αποκλεισμό (ή να απεπιλέξετε) σε περισσότερες διευθύνσεις IP χρησιμοποιώντας τον κατάλληλο συνδυασμό ποντικιού και πληκτρολογίου του υπολογιστή σας και του Πλοηγού σας. Οι εξαιρούμενες IP θα είναι υπογραμμισμένες',
 
-	'LENGTH_BAN_INVALID'		=> 'The date has to be formatted <kbd>YYYY-MM-DD</kbd>.',
+	'LENGTH_BAN_INVALID'		=> 'Η μορφή της ημερομηνίας πρέπει να είναι <kbd>YYYY-MM-DD</kbd>.',
 
-	'OPTIONS_BANNED'			=> 'Banned',
-	'OPTIONS_EXCLUDED'			=> 'Excluded',
+	'OPTIONS_BANNED'		=> 'Αποκλεισμός',
+	'OPTIONS_EXCLUDED'		=> 'Ρυθμίσεις που εξαιρούνται',
 
-	'PERMANENT'		=> 'Permanent',
+	'PERMANENT'			=> 'Οριστικός',
 
-	'UNTIL'						=> 'Until',
-	'USER_BAN'					=> 'Ban one or more users by username',
-	'USER_BAN_EXCLUDE_EXPLAIN'	=> 'Enable this to exclude the entered users from all current bans.',
-	'USER_BAN_EXPLAIN'			=> 'You can ban multiple users in one go by entering each name on a new line. Use the <span style="text-decoration: underline;">Find a member</span> facility to look up and add one or more users automatically.',
-	'USER_NO_BANNED'			=> 'No banned usernames',
-	'USER_UNBAN'				=> 'Un-ban or un-exclude users by username',
-	'USER_UNBAN_EXPLAIN'		=> 'You can unban (or un-exclude) multiple users in one go using the appropriate combination of mouse and keyboard for your computer and browser. Excluded users are emphasised.',
+	'UNTIL'				=> 'Μέχρι',
+	'USER_BAN'			=> 'Αποκλεισμός ενός ή περισσοτέρων ονομάτων μελών',
+	'USER_BAN_EXCLUDE_EXPLAIN'	=> 'Επιλέξτε για εξαίρεση των μελών από όλους τους τρέχοντες αποκλεισμούς.',
+	'USER_BAN_EXPLAIN'		=> 'Μπορείτε να αποκλείσετε περισσότερα μέλη βάζοντας το κάθε όνομα σε διαφορετική γραμμή. Χρησιμοποιήστε το <span style="text-decoration: underline;">Αναζήτηση Μέλους</span> για να βρείτε και να προσθέσετε περισσότερα μέλη ταυτόχρονα.',
+	'USER_NO_BANNED'		=> 'Δεν υπάρχουν αποκλεισμένα ονόματα μελών',
+	'USER_UNBAN'			=> 'Άρση αποκλεισμού ή απεπιλογή ονομάτων μελών',
+	'USER_UNBAN_EXPLAIN'		=> 'Μπορείτε να άρετε τον αποκλεισμό (ή να απεπιλέξετε) περισσότερους χρήστες χρησιμοποιώντας τον κατάλληλο συνδυασμό ποντικιού και πληκτρολογίου του υπολογιστή σας και του Πλοηγού σας. Οι εξαιρούμενα μέλη θα είναι υπογραμμισμένοι.',
 ));
