@@ -1,16 +1,18 @@
 <?php
+
 /**
-* acp_permissions_phpbb (phpBB Permission Set) [Greek - El]
+*
+* permissions_phpbb.php [Greek - El]
 *
 * @package language
-* @version $Id$
+* @version $Id: permissions.php 11617 2011-12-08 21:30:13Z git-gate $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
-* Ελληνική μετάφραση από την ομάδα του phpbbgr.com:
+* Ελληνική μετάφραση από την ομάδα του phpbbgr.com με πιθανές μετατροπές από mens-only.gr:
 * (http://phpbbgr.com/team/)
 *
-*/
+/**
 
 /**
 * DO NOT CHANGE
@@ -38,208 +40,175 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 /**
-*	MODDERS PLEASE NOTE
-*	
-*	You are able to put your permission sets into a separate file too by
-*	prefixing the new file with permissions_ and putting it into the acp 
-*	language folder.
+*	EXTENSION-DEVELOPERS PLEASE NOTE
 *
-*	An example of how the file could look like:
-*
-*	<code>
-*
-*	if (empty($lang) || !is_array($lang))
-*	{
-*		$lang = array();
-*	}
-*
-*	// Adding new category
-*	$lang['permission_cat']['bugs'] = 'Bugs';
-*
-*	// Adding new permission set
-*	$lang['permission_type']['bug_'] = 'Bug Permissions';
-*
-*	// Adding the permissions
-*	$lang = array_merge($lang, array(
-*		'acl_bug_view'		=> array('lang' => 'Can view bug reports', 'cat' => 'bugs'),
-*		'acl_bug_post'		=> array('lang' => 'Can post bugs', 'cat' => 'post'), // Using a phpBB category here
-*	));
-*
-*	</code>
+*	You are able to put your permission sets into your extension.
+*	The permissions logic should be added via the 'core.permissions' event.
+*	You can easily add new permission categories, types and permissions, by
+*	simply merging them into the respective arrays.
+*	The respective language strings should be added into a language file, that
+*	start with 'permissions_', so they are automatically loaded within the ACP.
 */
 
-// Define categories and permission types
 $lang = array_merge($lang, array(
-	'permission_cat'	=> array(
-		'actions'		=> 'Ενέργεια',
-		'content'		=> 'Περιεχόμενο',
-		'forums'		=> 'Δ. Συζητήσεις',
-		'misc'			=> 'Διάφορα',
-		'permissions'	=> 'Δικαιώματα',
-		'pm'			=> 'Προσωπικά Μηνύματα',
-		'polls'			=> 'Δημοψηφίσματα',
-		'post'			=> 'Δημοσίευση',
-		'post_actions'	=> 'Δημοσίευσης ενέργεια',
-		'posting'		=> 'Δημοσίευση',
-		'profile'		=> 'Προφίλ',
-		'settings'		=> 'Ρυθμίσεις',
-		'topic_actions'	=> 'Θέματος ενέργεια',
-		'user_group'	=> 'Μέλη &amp; Ομάδες',
-	),
-
-	// With defining 'global' here we are able to specify what is printed out if the permission is within the global scope.
-	'permission_type'	=> array(
-		'u_'			=> 'Δικαιώματα Μελών',
-		'a_'			=> 'Δικαιώματα Διαχειριστών',
-		'm_'			=> 'Δικαιώματα Συντονιστών',
-		'f_'			=> 'Δικαιώματα Δ. Συζήτησης',
-		'global'		=> array(
-			'm_'			=> 'Δικαιώματα Καθολικών Συντονιστών',
-		),
-	),
+	'ACL_CAT_ACTIONS'		=> 'Ενέργεια',
+	'ACL_CAT_CONTENT'		=> 'Περιεχόμενο',
+	'ACL_CAT_FORUMS'		=> 'Δ. Συζητήσεις',
+	'ACL_CAT_MISC'			=> 'Διάφορα',
+	'ACL_CAT_PERMISSIONS'	=> 'Δικαιώματα',
+	'ACL_CAT_PM'			=> 'Προσωπικά Μηνύματα',
+	'ACL_CAT_POLLS'			=> 'Δημοψηφίσματα',
+	'ACL_CAT_POST'			=> 'Δημοσίευση',
+	'ACL_CAT_POST_ACTIONS'	=> 'Δημοσίευσης ενέργεια',
+	'ACL_CAT_POSTING'		=> 'Δημοσίευση',
+	'ACL_CAT_PROFILE'		=> 'Προφίλ',
+	'ACL_CAT_SETTINGS'		=> 'Ρυθμίσεις',
+	'ACL_CAT_TOPIC_ACTIONS'	=> 'Ενέργεια θέματος',
+	'ACL_CAT_USER_GROUP'	=> 'Μέλη &amp; Ομάδες',
 ));
 
 // User Permissions
 $lang = array_merge($lang, array(
-	'acl_u_viewprofile'	=> array('lang' => 'Μπορεί να κάνει προβολή του προφίλ, λίστα μελών και την σε σύνδεση λίστα', 'cat' => 'profile'),
-	'acl_u_chgname'		=> array('lang' => 'Μπορεί να αλλάξει όνομα μέλους', 'cat' => 'profile'),
-	'acl_u_chgpasswd'	=> array('lang' => 'Μπορεί να αλλάξει κωδικό,', 'cat' => 'profile'),
-	'acl_u_chgemail'	=> array('lang' => 'Μπορεί να αλλάξει διεύθυνση ηλεκτρονικού ταχυδρομείου', 'cat' => 'profile'),
-	'acl_u_chgavatar'	=> array('lang' => 'Μπορεί να αλλάξει άβαταρ', 'cat' => 'profile'),
-	'acl_u_chggrp'		=> array('lang' => 'Μπορεί να αλλάξει ομάδα προεπιλογής', 'cat' => 'profile'),
+	'ACL_U_VIEWPROFILE'	=> 'Μπορεί να δει τα προφίλ, την λίστα μελών και σε σύνδεση λίστα',
+	'ACL_U_CHGNAME'		=> 'Μπορεί να αλλάξει όνομα μέλους',
+	'ACL_U_CHGPASSWD'	=> 'Μπορεί να αλλάξει κωδικό',
+	'ACL_U_CHGEMAIL'		=> 'Μπορεί να αλλάξει την διεύθυνση ηλεκτρονικής αλληλογραφίας',
+	'ACL_U_CHGAVATAR'		=> 'Μπορεί να αλλάξει άβαταρ',
+	'ACL_U_CHGGRP'		=> 'Μπορεί να αλλάξει ομάδα προεπιλογής',
+	'ACL_U_CHGPROFILEINFO'	=> 'Μπορεί να αλλάξει τα πεδία για τις πληροφορίες του προφίλ',
 
-	'acl_u_attach'		=> array('lang' => 'Μπορεί να προσθέσει συνημμένα αρχεία', 'cat' => 'post'),
-	'acl_u_download'	=> array('lang' => 'Μπορεί να μεταφορτώσει αρχεία', 'cat' => 'post'),
-	'acl_u_savedrafts'	=> array('lang' => 'Μπορεί να αποθηκεύσει προσχέδια', 'cat' => 'post'),
-	'acl_u_chgcensors'	=> array('lang' => 'Μπορεί να απενεργοποιήσει λογοκριτές λέξης', 'cat' => 'post'),
-	'acl_u_sig'			=> array('lang' => 'Μπορεί να χρησιμοποιήσει υπογραφή', 'cat' => 'post'),
+	'ACL_U_ATTACH'		=> 'Μπορεί να προσθέσει συνημμένα αρχεία',
+	'ACL_U_DOWNLOAD'		=> 'Μπορεί να μεταφορτώσει αρχεία',
+	'ACL_U_SAVEDRAFTS'	=> 'Μπορεί να αποθηκεύσει προσχέδια',
+	'ACL_U_CHGCENSORS'	=> 'Μπορεί να απενεργοποιήσει λογοκριτές λέξης',
+	'ACL_U_SIG'			=> 'Μπορεί να χρησιμοποιήσει υπογραφή',
 
-	'acl_u_sendpm'		=> array('lang' => 'Μπορεί να στείλει προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_masspm'		=> array('lang' => 'Μπορεί να στείλει πολλαπλά προσωπικά μηνύματα σε μέλη και ομάδες', 'cat' => 'pm'),
-	'acl_u_masspm_group'=> array('lang' => 'Μπορεί να στείλει μηνύματα σε ομάδες ', 'cat' => 'pm'),
-	'acl_u_readpm'		=> array('lang' => 'Μπορεί να διαβάσει προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_edit'		=> array('lang' => 'Μπορεί να επεξεργαστεί στα δικά του προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_delete'	=> array('lang' => 'Μπορεί να διαγράψει προσωπικά μηνύματα από το γραμματοκιβώτιο του', 'cat' => 'pm'),
-	'acl_u_pm_forward'	=> array('lang' => 'Μπορεί να προωθήσει τα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_emailpm'	=> array('lang' => 'Μπορεί να στείλει προσωπικά μηνύματα μέσω ηλεκτρονικού ταχυδρομείου', 'cat' => 'pm'),
-	'acl_u_pm_printpm'	=> array('lang' => 'Μπορεί να εκτυπώσει προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_attach'	=> array('lang' => 'Μπορεί να προσθέσει συνημμένα στα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_download'	=> array('lang' => 'Μπορεί να μεταφορτώσει στα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_bbcode'	=> array('lang' => 'Μπορεί να χρησιμοποιήσει BBCode στα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_smilies'	=> array('lang' => 'Μπορεί να χρησιμοποιήσει εικονίδια στα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_img'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει [img] BBCode ετικέτα στα προσωπικά μηνύματα', 'cat' => 'pm'),
-	'acl_u_pm_flash'	=> array('lang' => 'Μπορεί να χρησιμοποιήσει [flash] BBCode ετικέτα στα προσωπικά μηνύματα', 'cat' => 'pm'),
+	'ACL_U_SENDPM'		=> 'Μπορεί να στείλει προσωπικά μηνύματα',
+	'ACL_U_MASSPM'		=> 'Μπορεί να στείλει προσωπικά μηνύματα σε περισσότερο από 1 μέλη',
+	'ACL_U_MASSPM_GROUP'=> 'Μπορεί να στείλει μηνύματα σε ομάδες ',
+	'ACL_U_READPM'		=> 'Μπορεί να διαβάσει προσωπικά μηνύματα',
+	'ACL_U_PM_EDIT'		=> 'Μπορεί να επεξεργαστεί στα δικά του προσωπικά μηνύματα',
+	'ACL_U_PM_DELETE'		=> 'Μπορεί να διαγράψει προσωπικά μηνύματα από το γραμματοκιβώτιο του',
+	'ACL_U_PM_FORWARD'	=> 'Μπορεί να προωθήσει τα προσωπικά μηνύματα',
+	'ACL_U_PM_EMAILPM'	=> 'Μπορεί να στείλει προσωπικά μηνύματα μέσω ηλεκτρονικής αλληλογραφίας',
+	'ACL_U_PM_PRINTPM'	=> 'Μπορεί να εκτυπώσει προσωπικά μηνύματα',
+	'ACL_U_PM_ATTACH'		=> 'Μπορεί να προσθέσει συνημμένα στα προσωπικά μηνύματα',
+	'ACL_U_PM_DOWNLOAD'	=> 'Μπορεί να μεταφορτώσει αρχεία από τα προσωπικά μηνύματα',
+	'ACL_U_PM_BBCODE'		=> 'Μπορεί να χρησιμοποιήσει BBCode στα προσωπικά μηνύματα',
+	'ACL_U_PM_SMILIES'		=> 'Μπορεί να χρησιμοποιήσει smilies στα προσωπικά μηνύματα',
+	'ACL_U_PM_IMG'		=> 'Μπορεί να χρησιμοποιήσει [img] BBCode ετικέτα στα προσωπικά μηνύματα',
+	'ACL_U_PM_FLASH'		=> 'Μπορεί να χρησιμοποιήσει [flash] BBCode ετικέτα στα προσωπικά μηνύματα',
 
-	'acl_u_sendemail'	=> array('lang' => 'Μπορεί να στείλει ηλεκτρονικά ταχυδρομεία', 'cat' => 'misc'),
-	'acl_u_sendim'		=> array('lang' => 'Μπορεί να στείλει στιγμιαία μηνύματα', 'cat' => 'misc'),
-	'acl_u_ignoreflood'	=> array('lang' => 'Μπορεί να αγνοήσει όριο αναμονής', 'cat' => 'misc'),
-	'acl_u_hideonline'	=> array('lang' => 'Μπορεί να κάνει απόκρυψη την σε απευθείας σύνδεση κατάσταση ', 'cat' => 'misc'),
-	'acl_u_viewonline'	=> array('lang' => 'Μπορεί να βλέπει μέλη με απόκρυψη σε απευθείας σύνδεση', 'cat' => 'misc'),
-	'acl_u_search'		=> array('lang' => 'Μπορεί να αναζητήσει στην Δ. Συζήτηση', 'cat' => 'misc'),
+	'ACL_U_SENDEMAIL'		=> 'Μπορεί να στείλει ηλεκτρονικά ταχυδρομεία',
+	'ACL_U_SENDIM'		=> 'Μπορεί να στείλει στιγμιαία μηνύματα',
+	'ACL_U_IGNOREFLOOD'	=> 'Μπορεί να αγνοήσει όριο αναμονής',
+	'ACL_U_HIDEONLINE'		=> 'Μπορεί να κάνει απόκρυψη την σε σύνδεση κατάσταση',
+	'ACL_U_VIEWONLINE'		=> 'Μπορεί να βλέπει μέλη με απόκρυψη σε σύνδεση',
+	'ACL_U_SEARCH'		=> 'Μπορεί να αναζητήσει στην Δ. Συζήτηση',
 ));
 
 // Forum Permissions
 $lang = array_merge($lang, array(
-	'acl_f_list'		=> array('lang' => 'Μπορεί να βλέπει τις Δ. Συζητήσεις', 'cat' => 'post'),
-	'acl_f_read'		=> array('lang' => 'Μπορεί να διαβάζει τις Δ. Συζητήσεις', 'cat' => 'post'),
-	'acl_f_post'		=> array('lang' => 'Μπορεί να ξεκινήσει νέο θέμα', 'cat' => 'post'),
-	'acl_f_reply'		=> array('lang' => 'Μπορεί να απαντήσει στα θέματα', 'cat' => 'post'),
-	'acl_f_icons'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει σύμβολα θεμάτων/δημοσιεύσεων', 'cat' => 'post'),
-	'acl_f_announce'	=> array('lang' => 'Μπορεί να κάνει δημοσίευση ανακοίνωση', 'cat' => 'post'),
-	'acl_f_sticky'		=> array('lang' => 'Μπορεί να κάνει δημοσίευση σημείωση', 'cat' => 'post'),
+	'ACL_F_LIST'		=> 'Μπορεί να βλέπει τις Δ. Συζητήσεις',
+	'ACL_F_READ'		=> 'Μπορεί να διαβάζει τις Δ. Συζητήσεις',
+	'ACL_F_SEARCH'	=> 'Μπορεί να αναζητήσει στην Δ. Συζήτηση',
+	'ACL_F_SUBSCRIBE'	=> 'Μπορεί να παρακολουθεί τις Δ. Συζητήσεις',
+	'ACL_F_PRINT'		=> 'Μπορεί να εκτυπώσει θέματα',
+	'ACL_F_EMAIL'		=> 'Μπορεί να προτείνει θέματα μέσω ηλεκτρονικής αλληλογραφίας',
+	'ACL_F_BUMP'		=> 'Μπορεί να θέσει θέματα ως νέα',
+	'ACL_F_USER_LOCK'	=> 'Μπορεί να κλειδώσει θέματά του',
+	'ACL_F_DOWNLOAD'	=> 'Μπορεί να μεταφορτώσει αρχεία',
+	'ACL_F_REPORT'	=> 'Μπορεί να αναφέρει δημοσιεύσεις',
 
-	'acl_f_poll'		=> array('lang' => 'Μπορεί να δημιουργήσει δημοψηφίσματα', 'cat' => 'polls'),
-	'acl_f_vote'		=> array('lang' => 'Μπορεί να ψηφίσει στα δημοψηφίσματα', 'cat' => 'polls'),
-	'acl_f_votechg'		=> array('lang' => 'Μπορεί να αλλάξει τους υπάρχων ψήφους ', 'cat' => 'polls'),
+	'ACL_F_POST'		=> 'Μπορεί να ξεκινήσει νέο θέμα',
+	'ACL_F_STICKY'		=> 'Μπορεί να κάνει δημοσίευση σημείωση',
+	'ACL_F_ANNOUNCE'	=> 'Μπορεί να κάνει δημοσίευση ανακοίνωση',
+	'ACL_F_REPLY'		=> 'Μπορεί να απαντήσει στα θέματα',
+	'ACL_F_EDIT'		=> 'Μπορεί να επεξεργαστεί δημοσιεύσεις του',
+	'ACL_F_DELETE'		=> 'Μπορεί να διαγράψει οριστηκά τις δημοσιεύσεις του',
+	'ACL_F_SOFTDELETE'	=> 'Μπορεί να "ψευδο" διαγράψει μόνο τις δικές του δημοσιεύσεις <br /> <em> Συντονιστές, οι οποίοι έχουν το δικαίωμα να εγκρίνουν δημοσιεύσεις, μπορούν να αποκαταστήσουν τη διαγραμμένη δημοσίευση. </ Em>',
+	'ACL_F_IGNOREFLOOD' => 'Μπορεί να αγνοήσει το όριο αναμονής',
+	'ACL_F_POSTCOUNT'	=> 'Αύξηση δημοσιεύσεων μετρητή<br /><em>Παρακαλώ σημειώστε ότι αυτή η ρύθμιση έχει επιπτώσεις μόνο στις νέες δημοσιεύσεις.</em>',
+	'ACL_F_NOAPPROVE'	=> 'Μπορεί να δημοσιεύσει χωρίς να εγκριθεί',
 
-	'acl_f_attach'		=> array('lang' => 'Μπορεί να προσθέσει συνημμένα αρχεία', 'cat' => 'content'),
-	'acl_f_download'	=> array('lang' => 'Μπορεί να μεταφορτώσει αρχεία', 'cat' => 'content'),
-	'acl_f_sigs'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει υπογραφή', 'cat' => 'content'),
-	'acl_f_bbcode'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει BBCode', 'cat' => 'content'),
-	'acl_f_smilies'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει εικονίδια', 'cat' => 'content'),
-	'acl_f_img'			=> array('lang' => 'Μπορεί να χρησιμοποιήσει [img] BBCode ετικέτα', 'cat' => 'content'),
-	'acl_f_flash'		=> array('lang' => 'Μπορεί να χρησιμοποιήσει [flash] BBCode ετικέτα', 'cat' => 'content'),
+	'ACL_F_ATTACH'		=> 'Μπορεί να προσθέσει συνημμένα αρχεία',
+	'ACL_F_ICONS'		=> 'Μπορεί να χρησιμοποιήσει σύμβολα θεμάτων/δημοσιεύσεων',
+	'ACL_F_BBCODE'	=> 'Μπορεί να χρησιμοποιήσει BBCode',
+	'ACL_F_FLASH'		=> 'Μπορεί να χρησιμοποιήσει [flash] BBCode ετικέτα',
+	'ACL_F_IMG'		=> 'Μπορεί να χρησιμοποιήσει [img] BBCode ετικέτα',
+	'ACL_F_SIGS'		=> 'Μπορεί να χρησιμοποιήσει υπογραφή',
+	'ACL_F_SMILIES'		=> 'Μπορεί να χρησιμοποιήσει smilies',
 
-	'acl_f_edit'		=> array('lang' => 'Μπορεί να επεξεργαστεί δημοσιεύσεις του', 'cat' => 'actions'),
-	'acl_f_delete'		=> array('lang' => 'Μπορεί να διαγράψει δημοσιεύσεις του', 'cat' => 'actions'),
-	'acl_f_user_lock'	=> array('lang' => 'Μπορεί να κλειδώσει θέματά του', 'cat' => 'actions'),
-	'acl_f_bump'		=> array('lang' => 'Μπορεί να θέσει θέματα ως νέα', 'cat' => 'actions'),
-	'acl_f_report'		=> array('lang' => 'Μπορεί να αναφέρει δημοσιεύσεις', 'cat' => 'actions'),
-	'acl_f_subscribe'	=> array('lang' => 'Μπορεί να παρακολουθεί τις Δ. Συζητήσεις', 'cat' => 'actions'),
-	'acl_f_print'		=> array('lang' => 'Μπορεί να εκτυπώσει θέματα', 'cat' => 'actions'),
-	'acl_f_email'		=> array('lang' => 'Μπορεί να προτείνει θέματα μέσω ηλεκτρονικού τα ταχυδρομείου', 'cat' => 'actions'),
-
-	'acl_f_search'		=> array('lang' => 'Μπορεί να αναζητήσει στην Δ. Συζήτηση', 'cat' => 'misc'),
-	'acl_f_ignoreflood' => array('lang' => 'Μπορεί να αγνοήσει το όριο αναμονής', 'cat' => 'misc'),
-	'acl_f_postcount'	=> array('lang' => 'Αύξηση δημοσιεύσεων μετρητή<br /><em>Παρακαλώ σημειώστε ότι αυτή η ρύθμιση έχει επιπτώσεις μόνο στις νέες δημοσιεύσεις.</em>', 'cat' => 'misc'),
-	'acl_f_noapprove'	=> array('lang' => 'Μπορεί να δημοσιεύσει χωρίς να εγκριθεί', 'cat' => 'misc'),
+	'ACL_F_POLL'		=> 'Μπορεί να δημιουργήσει δημοψηφίσματα',
+	'ACL_F_VOTE'		=> 'Μπορεί να ψηφίσει στα δημοψηφίσματα',
+	'ACL_F_VOTECHG'	=> 'Μπορεί να αλλάξει τους υπάρχων ψήφους ',
 ));
 
 // Moderator Permissions
 $lang = array_merge($lang, array(
-	'acl_m_edit'		=> array('lang' => 'Μπορεί να επεξεργαστεί δημοσιεύσεις', 'cat' => 'post_actions'),
-	'acl_m_delete'		=> array('lang' => 'Μπορεί να διαγράψει δημοσιεύσεις', 'cat' => 'post_actions'),
-	'acl_m_approve'		=> array('lang' => 'Μπορεί να εγκρίνει δημοσιεύσεις', 'cat' => 'post_actions'),
-	'acl_m_report'		=> array('lang' => 'Μπορεί να κλείσει και διαγράψει αναφορές', 'cat' => 'post_actions'),
-	'acl_m_chgposter'	=> array('lang' => 'Μπορεί να αλλάξει συγγραφέα δημοσίευσης', 'cat' => 'post_actions'),
+	'ACL_M_EDIT'			=> 'Μπορεί να επεξεργαστεί δημοσιεύσεις',
+	'ACL_M_DELETE'		=> 'Μπορεί να διαγράψει δημοσιεύσεις',
+	'ACL_M_SOFTDELETE'	=> 'Μπορεί να "ψευδο" διαγράψει μόνο τις δικές του δημοσιεύσεις <br /> <em> Συντονιστές, οι οποίοι έχουν το δικαίωμα να εγκρίνουν δημοσιεύσεις, μπορούν να αποκαταστήσουν τη διαγραμμένη δημοσίευση. </ Em>',
+	'ACL_M_APPROVE'		=> 'Μπορεί να εγκρίνει και να αποκαταστήσει δημοσιεύσεις',
+	'ACL_M_REPORT'		=> 'Μπορεί να κλείσει και διαγράψει αναφορές',
+	'ACL_M_CHGPOSTER'		=> 'Μπορεί να αλλάξει συγγραφέα δημοσίευσης',
 
-	'acl_m_move'	=> array('lang' => 'Μπορεί να μετακινήσει θέματα', 'cat' => 'topic_actions'),
-	'acl_m_lock'	=> array('lang' => 'Μπορεί να κλειδώσει θέματα', 'cat' => 'topic_actions'),
-	'acl_m_split'	=> array('lang' => 'Μπορεί να διαχωρίσει θέματα', 'cat' => 'topic_actions'),
-	'acl_m_merge'	=> array('lang' => 'Μπορεί να συγχωνεύση θέματα', 'cat' => 'topic_actions'),
+	'ACL_M_MOVE'	=> 'Μπορεί να μετακινήσει θέματα',
+	'ACL_M_LOCK'	=> 'Μπορεί να κλειδώσει θέματα',
+	'ACL_M_SPLIT'	=> 'Μπορεί να διαχωρίσει θέματα',
+	'ACL_M_MERGE'	=> 'Μπορεί να συγχωνεύση θέματα',
 
-	'acl_m_info'	=> array('lang' => 'Μπορεί να βλέπει λεπτομέρειες θεμάτων,', 'cat' => 'misc'),
-	'acl_m_warn'	=> array('lang' => 'Μπορεί να προειδοποιήσει<br /><em>Αυτή η ρύθμιση ορίζεται μόνο συνολικά. Δεν είναι με βάση το φόρουμ.</em>', 'cat' => 'misc'), // This moderator setting is only global (and not local)
-	'acl_m_ban'		=> array('lang' => 'Μπορεί να διαχειριστεί απαγορεύσεις<br /><em>Αυτή η ρύθμιση ορίζεται μόνο συνολικά. Δεν είναι με βάση το φόρουμ.</em>', 'cat' => 'misc'), // This moderator setting is only global (and not local)
+	'ACL_M_INFO'	=> 'Μπορεί να βλέπει λεπτομέρειες θεμάτων',
+	'ACL_M_WARN'	=> 'Μπορεί να προειδοποιήσει<br /><em>Αυτή η ρύθμιση ορίζεται μόνο συνολικά. Δεν είναι με βάση το φόρουμ.</em>', // This moderator setting is only global (and not local)
+	'ACL_M_BAN'	=> 'Μπορεί να διαχειριστεί απαγορεύσεις<br /><em>Αυτή η ρύθμιση ορίζεται μόνο συνολικά. Δεν είναι με βάση το φόρουμ.</em>', // This moderator setting is only global (and not local)
 ));
 
 // Admin Permissions
 $lang = array_merge($lang, array(
-	'acl_a_board'		=> array('lang' => 'Μπορεί να αλλάξει Δ. Συζήτησης ρυθμίσεις/έλεγχο για ενημερώσεις', 'cat' => 'settings'),
-	'acl_a_server'		=> array('lang' => 'Μπορεί να αλλάξει τις τοποθετήσεις κεντρικών υπολογιστών/επικοινωνίας', 'cat' => 'settings'),
-	'acl_a_jabber'		=> array('lang' => 'Μπορεί να αλλάξει τις Jabber ρυθμίσεις', 'cat' => 'settings'),
-	'acl_a_phpinfo'		=> array('lang' => 'Μπορεί να βλέπει τις ρυθμίσεις', 'cat' => 'settings'),
+	'ACL_A_BOARD'		=> 'Μπορεί να αλλάξει τις ρυθμίσεις της Δ. Συζήτησης/έλεγχο για ενημερώσεις',
+	'ACL_A_SERVER'	=> 'Μπορεί να αλλάξει τις  ρυθμίσεις του διακομιστή και της επικοινωνίας',
+	'ACL_A_JABBER'		=> 'Μπορεί να αλλάξει τις Jabber ρυθμίσεις',
+	'ACL_A_PHPINFO'	=> 'Μπορεί να βλέπει τις ρυθμίσεις της PHP',
 
-	'acl_a_forum'		=> array('lang' => 'Μπορεί να διαχειριστεί τις Δ. Συζητήσεις', 'cat' => 'forums'),
-	'acl_a_forumadd'	=> array('lang' => 'Μπορεί να προσθέσει νέες Δ. Συζητήσεις', 'cat' => 'forums'),
-	'acl_a_forumdel'	=> array('lang' => 'Μπορεί να διαγράψει Δ. Συζητήσεις', 'cat' => 'forums'),
-	'acl_a_prune'		=> array('lang' => 'Μπορεί να αδειάσει Δ. Συζητήσεις', 'cat' => 'forums'),
+	'ACL_A_FORUM'		=> 'Μπορεί να διαχειριστεί τις Δ. Συζητήσεις',
+	'ACL_A_FORUMADD'	=> 'Μπορεί να προσθέσει νέες Δ. Συζητήσεις',
+	'ACL_A_FORUMDEL'	=> 'Μπορεί να διαγράψει Δ. Συζητήσεις',
+	'ACL_A_PRUNE'		=> 'Μπορεί να αδειάσει Δ. Συζητήσεις',
 
-	'acl_a_icons'		=> array('lang' => 'Μπορεί να αλλάξει θέματος/δημοσίευσης σύμβολα και εικονίδια', 'cat' => 'posting'),
-	'acl_a_words'		=> array('lang' => 'Μπορεί να αλλάξει λογοκριτές λέξεων', 'cat' => 'posting'),
-	'acl_a_bbcode'		=> array('lang' => 'Μπορεί να BBCode ετικέτες', 'cat' => 'posting'),
-	'acl_a_attach'		=> array('lang' => 'Μπορεί να αλλάξεις τις ρυθμίσεις συνημμένων', 'cat' => 'posting'),
+	'ACL_A_ICONS'		=> 'Μπορεί να αλλάξει τα εικονίδια και τα smilies θέματος/δημοσίευσης ',
+	'ACL_A_WORDS'		=> 'Μπορεί να αλλάξει λογοκριτές λέξεων',
+	'ACL_A_BBCODE'	=> 'Μπορεί να BBCode ετικέτες',
+	'ACL_A_ATTACH'		=> 'Μπορεί να αλλάξεις τις ρυθμίσεις συνημμένων',
 
-	'acl_a_user'		=> array('lang' => 'Μπορεί να διαχειριστεί μέλη<br /><em>Αυτό περιλαμβάνει επίσης να δει τον πλοηγό των μελών μέσα στον κατάλογο ποιος είναι σε σύνδεση.</em>', 'cat' => 'user_group'),
-	'acl_a_userdel'		=> array('lang' => 'Μπορεί να διαγράψει μέλη', 'cat' => 'user_group'),
-	'acl_a_group'		=> array('lang' => 'Μπορεί να διαχειριστεί ομάδες', 'cat' => 'user_group'),
-	'acl_a_groupadd'	=> array('lang' => 'Μπορεί να προσθέσει ομάδες', 'cat' => 'user_group'),
-	'acl_a_groupdel'	=> array('lang' => 'Μπορεί να διαγράψει ομάδες', 'cat' => 'user_group'),
-	'acl_a_ranks'		=> array('lang' => 'Μπορεί να διαχειριστεί βαθμούς', 'cat' => 'user_group'),
-	'acl_a_profile'		=> array('lang' => 'Μπορεί να διαχειριστεί πεδία προφίλ', 'cat' => 'user_group'),
-	'acl_a_names'		=> array('lang' => 'Μπορεί να διαχειριστεί απαγορευμένα ονόματα', 'cat' => 'user_group'),
-	'acl_a_ban'			=> array('lang' => 'Μπορεί να διαχειριστεί απαγορεύσεις', 'cat' => 'user_group'),
+	'ACL_A_USER'		=> 'Μπορεί να διαχειριστεί μέλη<br /><em>Αυτό περιλαμβάνει επίσης να δει τον πλοηγό των μελών μέσα από τον κατάλογο ποιος είναι σε σύνδεση.</em>',
+	'ACL_A_USERDEL'	=> 'Μπορεί να διαγράψει μέλη',
+	'ACL_A_GROUP'		=> 'Μπορεί να διαχειριστεί ομάδες',
+	'ACL_A_GROUPADD'	=> 'Μπορεί να προσθέσει ομάδες',
+	'ACL_A_GROUPDEL'	=> 'Μπορεί να διαγράψει ομάδες',
+	'ACL_A_RANKS'		=> 'Μπορεί να διαχειριστεί βαθμούς',
+	'ACL_A_PROFILE'	=> 'Μπορεί να διαχειριστεί το προσαρμοσμένο πεδία προφίλ',
+	'ACL_A_NAMES'		=> 'Μπορεί να διαχειριστεί απαγορευμένα ονόματα',
+	'ACL_A_BAN'		=> 'Μπορεί να διαχειριστεί απαγορεύσεις',
 
-	'acl_a_viewauth'	=> array('lang' => 'Μπορεί να βλέπει τις αποτελεσματικές εγκρίσεις', 'cat' => 'permissions'),
-	'acl_a_authgroups'	=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μεμονωμένων ομάδων', 'cat' => 'permissions'),
-	'acl_a_authusers'	=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μεμονωμένων μελών', 'cat' => 'permissions'),
-	'acl_a_fauth'		=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις των Δ. Συζητήσεων', 'cat' => 'permissions'),
-	'acl_a_mauth'		=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις συντονιστών', 'cat' => 'permissions'),
-	'acl_a_aauth'		=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις διαχειριστών', 'cat' => 'permissions'),
-	'acl_a_uauth'		=> array('lang' => 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μελών', 'cat' => 'permissions'),
-	'acl_a_roles'		=> array('lang' => 'Μπορεί να διαχειριστεί ρόλους', 'cat' => 'permissions'),
-	'acl_a_switchperm'	=> array('lang' => 'Μπορεί να χρησιμοποιήσει άλλα δικαιώματα', 'cat' => 'permissions'),
+	'ACL_A_VIEWAUTH'	=> 'Μπορεί να δει τις αποτελεσματικές εγκρίσεις',
+	'ACL_A_AUTHGROUPS'	=> 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μεμονωμένων ομάδων',
+	'ACL_A_AUTHUSERS'	=> 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μεμονωμένων μελών',
+	'ACL_A_FAUTH'		=> 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις των Δ. Συζητήσεων',
+	'ACL_A_MAUTH'		=> 'Can alter moderator permission class',
+	'ACL_A_AAUTH'		=> 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις διαχειριστών',
+	'ACL_A_UAUTH'		=> 'Μπορεί να αλλάξει τις γενικές ρυθμίσεις μελών',
+	'ACL_A_ROLES'		=> 'Μπορεί να διαχειριστεί ρόλους',
+	'ACL_A_SWITCHPERM'	=> 'Μπορεί να χρησιμοποιήσει δικαιώματα άλλων ',
 
-	'acl_a_styles'		=> array('lang' => 'Μπορεί να διαχειριστεί στυλ', 'cat' => 'misc'),
-	'acl_a_viewlogs'	=> array('lang' => 'Μπορεί να βλέπει ιστορικό', 'cat' => 'misc'),
-	'acl_a_clearlogs'	=> array('lang' => 'Μπορεί να καθαρίσει το ιστορικό', 'cat' => 'misc'),
-	'acl_a_modules'		=> array('lang' => 'Μπορεί να διαχειριστεί μονάδες', 'cat' => 'misc'),
-	'acl_a_language'	=> array('lang' => 'Μπορεί να διαχειριστεί πακέτα γλωσσών', 'cat' => 'misc'),
-	'acl_a_email'		=> array('lang' => 'Μπορεί να διαχειριστεί μαζικό ηλεκτρονικό ταχυδρομείο', 'cat' => 'misc'),
-	'acl_a_bots'		=> array('lang' => 'Μπορεί να διαχειριστεί bots', 'cat' => 'misc'),
-	'acl_a_reasons'		=> array('lang' => 'Μπορεί να διαχειριστεί αναφορές/λόγους αππόριψης', 'cat' => 'misc'),
-	'acl_a_backup'		=> array('lang' => 'Μπορεί να κάνει αντίγραφο ασφαλείας/επαναφορά βάσης', 'cat' => 'misc'),
-	'acl_a_search'		=> array('lang' => 'Μπορεί να διαχειριστεί το πρόγραμμα υποστήριξης αναζήτησης και τις ρυθμίσεις', 'cat' => 'misc'),
+	'ACL_A_STYLES'		=> 'Μπορεί να διαχειριστεί στυλ',
+	'ACL_A_EXTENSIONS'	=> 'Μπορεί να διαχειριστεί τις επεκτάσεις',
+	'ACL_A_VIEWLOGS'	=> 'Μπορεί να βλέπει ιστορικό',
+	'ACL_A_CLEARLOGS'	=> 'Μπορεί να καθαρίσει το ιστορικό',
+	'ACL_A_MODULES'	=> 'Μπορεί να διαχειριστεί μονάδες',
+	'ACL_A_LANGUAGE'	=> 'Μπορεί να διαχειριστεί πακέτα γλωσσών',
+	'ACL_A_EMAIL'		=> 'Μπορεί να στείλει μαζική ηλεκτρονική αλληλογραφία',
+	'ACL_A_BOTS'		=> 'Μπορεί να διαχειριστεί bots',
+	'ACL_A_REASONS'	=> 'Μπορεί να διαχειριστεί αναφορές/λόγους αππόριψης',
+	'ACL_A_BACKUP'	=> 'Μπορεί να κάνει αντίγραφο/επαναφορά βάσης',
+	'ACL_A_SEARCH'	=> 'Μπορεί να διαχειριστεί το πρόγραμμα υποστήριξης αναζήτησης και τις ρυθμίσεις',
 ));
-
-?>
