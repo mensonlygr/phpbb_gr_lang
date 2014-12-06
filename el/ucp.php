@@ -656,4 +656,3 @@ $lang = array_merge($lang, array(
 	'NO_NONMEMBER'	=> 'Καμία ομάδα μη μελών ',
 ));
 
-?>
