@@ -48,8 +48,8 @@ $lang = array_merge($lang, array(
 
 	'BEFORE'				=> 'Before',
 
-	'CC_EMAIL'				=> 'Send a copy of this email to yourself.',
-	'CONTACT_ADMIN'			=> 'Contact a Board Administrator',
+	'CC_SENDER'			=> 'Αποστολή αντίγραφου του ηλεκτρονικού ταχυδρομείου στον εαυτό σας.',
+	'CONTACT_ADMIN'			=> 'Επικοινωνήστε με τον διαχειριστή',
 
 	'DEST_LANG'				=> 'Language',
 	'DEST_LANG_EXPLAIN'		=> 'Select an appropriate language (if available) for the recipient of this message.',
@@ -119,12 +119,12 @@ $lang = array_merge($lang, array(
 	'REMOVE_FRIEND'			=> 'Remove friend',
 
 	'SELECT_MARKED'			=> 'Select marked',
-	'SELECT_SORT_METHOD'	=> 'Select sort method',
-	'SENDER_EMAIL_ADDRESS'	=> 'Your email address',
-	'SENDER_NAME'			=> 'Your name',
+	'SELECT_SORT_METHOD'		=> 'Select sort method',
+	'SENDER_EMAIL_ADDRESS'		=> 'Η διεύθυνση email σας',
+	'SENDER_NAME'			=> 'Το όνομά σας',
 	'SEND_ICQ_MESSAGE'		=> 'Send ICQ message',
-	'SEND_IM'				=> 'Instant messaging',
-	'SEND_JABBER_MESSAGE'	=> 'Send Jabber message',
+	'SEND_IM'			=> 'Instant messaging',
+	'SEND_JABBER_MESSAGE'		=> 'Send Jabber message',
 	'SEND_MESSAGE'			=> 'Message',
 	'SEND_YIM_MESSAGE'		=> 'Send YIM message',
 	'SORT_EMAIL'			=> 'Email',
