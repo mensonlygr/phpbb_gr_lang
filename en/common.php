@@ -534,12 +534,12 @@ $lang = array_merge($lang, array(
 	'ONLINE_BUDDIES'			=> 'Online friends',
 	// "... :: x registered and y hidden"
 	'ONLINE_USERS_TOTAL'		=> array(
-		1	=> 'Συνολικά υπάρχει <strong>%1$d</strong> χρήστη online :: %2$s και %3$s',
+		1	=> 'Συνολικά υπάρχει <strong>%1$d</strong> χρήστης online :: %2$s και %3$s',
 		2	=> 'Συνολικά υπάρχουν <strong>%1$d</strong> χρήστες online :: %2$s και %3$s',
 	),
 	// "... :: x registered, y hidden and z guests"
 	'ONLINE_USERS_TOTAL_GUESTS'	=> array(
-		1	=> 'Συνολικά υπάρχει <strong>%1$d</strong> χρήστη online :: %2$s, %3$s και %4$s',
+		1	=> 'Συνολικά υπάρχει <strong>%1$d</strong> χρήστης online :: %2$s, %3$s και %4$s',
 		2	=> 'Συνολικά υπάρχουν <strong>%1$d</strong> χρήστες online :: %2$s, %3$s και %4$s',
 	),
 	'OPTIONS'					=> 'Επιλογές',
