@@ -38,27 +38,27 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'CAPTCHA_QA'				=> 'Q&amp;A',
-	'CONFIRM_QUESTION_EXPLAIN'	=> 'This question is a means of preventing automated form submissions by spambots.',
-	'CONFIRM_QUESTION_WRONG'	=> 'You have provided an invalid answer to the question.',
+	'CONFIRM_QUESTION_EXPLAIN'		=> 'Αυτή η ερώτηση είναι ένα μέσο για τον εντοπισμό και την πρόληψη αυτόματων εγγραφών.',
+	'CONFIRM_QUESTION_WRONG'		=> 'Έχετε υποβάλει μια λάθος απάντηση στην ερώτηση οπτικής επιβεβαίωσης.',
 
-	'QUESTION_ANSWERS'			=> 'Answers',
-	'ANSWERS_EXPLAIN'			=> 'Please enter valid answers to the question, one per line.',
-	'CONFIRM_QUESTION'			=> 'Question',
+	'QUESTION_ANSWERS'			=> 'Απαντήσεις',
+	'ANSWERS_EXPLAIN'			=> 'Οι απαντήσεις. Παρακαλώ γράψτε μία απάντηση σε κάθε γραμμή.',
+	'CONFIRM_QUESTION'			=> 'Ερώτηση',
 
-	'ANSWER'					=> 'Answer',
-	'EDIT_QUESTION'				=> 'Edit Question',
-	'QUESTIONS'					=> 'Questions',
-	'QUESTIONS_EXPLAIN'			=> 'For every form submission where you have enabled the Q&amp;A plugin, users will be asked one of the questions specified here. To use this plugin at least one question must be set in the default language. These questions should be easy for your target audience to answer but beyond the ability of a bot capable of running a Google™ search. Using a large and regularly changed set of questions will yield the best results. Enable the strict setting if your question relies on mixed case, punctuation or whitespace.',
-	'QUESTION_DELETED'			=> 'Question deleted',
-	'QUESTION_LANG'				=> 'Language',
-	'QUESTION_LANG_EXPLAIN'		=> 'The language this question and its answers are written in.',
-	'QUESTION_STRICT'			=> 'Strict check',
-	'QUESTION_STRICT_EXPLAIN'	=> 'Enable to enforce mixed case, punctuation and whitespace.',
+	'ANSWER'				=> 'Απάντηση',
+	'EDIT_QUESTION'				=> 'Επεξεργασία Ερώτησης',
+	'QUESTIONS'				=> 'Ερωτήσεις',
+	'QUESTIONS_EXPLAIN'			=> 'Για κάθε υποβολή φόρμας όταν έχετε ενεργοποιήσει την Q & A μονάδα θα ζητηθεί στα μέλη ένα από τα ερωτήματα που αναφέρονται εδώ. Θα πρέπει να περιέχει τουλάχιστον μία ερώτηση στην προεπιλεγμένη γλώσσα της Δ. Συζήτησης για να μπορέσετε να χρησιμοποιήσετε αυτή την μονάδα. Οι ερωτήσεις θα πρέπει να είναι απλές για τις ομάδες που θα απευθύνονται, αλλά πέρα από τις ικανότητες του  Google™. Επίσης, να θυμάστε να αλλάζετε τις ερωτήσεις  τακτικά. Εάν η ερώτησή σας βασίζεται σε σημεία στίξης, την ορθογραφία ή κεφαλαία, χρησιμοποιήστε τον αυστηρό έλεγχο.',
+	'QUESTION_DELETED'			=> 'Ερώτηση διαγραφή',
+	'QUESTION_LANG'				=> 'Γλώσσα',
+	'QUESTION_LANG_EXPLAIN'			=> 'Η γλώσσα στην οποία είναι γραμμένα η ερώτηση και η απάντηση.',
+	'QUESTION_STRICT'			=> 'Αυστηρός έλεγχος',
+	'QUESTION_STRICT_EXPLAIN'		=> 'Αν ενεργοποιηθεί, θα γίνετε έλεγχος για λέξεις με κεφαλαία γράμματα  και κενά.',
 
-	'QUESTION_TEXT'				=> 'Question',
-	'QUESTION_TEXT_EXPLAIN'		=> 'The question presented to the user.',
+	'QUESTION_TEXT'				=> 'Κείμενο ερώτησης',
+	'QUESTION_TEXT_EXPLAIN'			=> 'Το ερώτημα που θα παρουσιάζεται στον χρήστη.',
 
-	'QA_ERROR_MSG'				=> 'Please fill in all fields and enter at least one answer.',
-	'QA_LAST_QUESTION'			=> 'You cannot delete all questions while the plugin is active.',
+	'QA_ERROR_MSG'				=> 'Παρακαλώ συμπληρώστε όλα τα πεδία και εισάγετε τουλάχιστον μια απάντηση.',
+	'QA_LAST_QUESTION'			=> 'Δεν μπορείτε να διαγράψετε όλα τα ερωτήματα, ενώ η μονάδα είναι ενεργή.',
 
 ));
