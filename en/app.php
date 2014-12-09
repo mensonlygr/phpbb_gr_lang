@@ -41,7 +41,7 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'CONTROLLER_ARGUMENT_VALUE_MISSING'	=> 'Λείπει τιμή για το επιχείρημα #%1$s: <strong>%3$s</strong> στην κατηγορία <strong>%2$s</strong>',
+	'CONTROLLER_ARGUMENT_VALUE_MISSING'	=> 'Λείπει τιμή για την παράμετρο #%1$s: <strong>%3$s</strong> στην κατηγορία <strong>%2$s</strong>',
 	'CONTROLLER_NOT_SPECIFIED'		=> 'Ο ελεγκτής δεν έχει οριστεί.',
 	'CONTROLLER_METHOD_NOT_SPECIFIED'	=> 'Καμία μέθοδος δεν ορίστηκε για τον ελεγκτή.',
 	'CONTROLLER_SERVICE_UNDEFINED'		=> 'Η υπηρεσία για τον ελεγκτή "<strong>%s</strong>" δεν ορίζεται στο ./config/services.yml.',
