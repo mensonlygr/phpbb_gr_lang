@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'CAPTCHA_QA'				=> 'Q&amp;A',
+	'CAPTCHA_QA'				=> 'Mονάδα Ε & Α',
 	'CONFIRM_QUESTION_EXPLAIN'		=> 'Αυτή η ερώτηση είναι ένα μέσο για τον εντοπισμό και την πρόληψη αυτόματων εγγραφών.',
 	'CONFIRM_QUESTION_WRONG'		=> 'Έχετε υποβάλει μια λάθος απάντηση στην ερώτηση οπτικής επιβεβαίωσης.',
 
