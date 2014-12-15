@@ -1,13 +1,13 @@
 Subject: Activate user account
 
-Hello,
+Γεια σας,
 
-The account owned by "{USERNAME}" has been deactivated or newly created, you should check the details of this user (if required) and handle it appropriately.
+Ο λογαριασμός που ανήκει στο μέλος "{USERNAME}" απενεργοποιήθηκε ή μόλις δημιουργήθηκε, Πρέπει να ελέγξετε τα στοιχεία αυτού του μέλους (εάν χρειάζεται) και να τον ενεργοποιήσετε.
 
-Use this link to view the user's profile:
+Χρησιμοποιήστε την ακόλουθη διαδρομή για να δείτε το προφίλ του μέλους:
 {U_USER_DETAILS}
 
-Use this link to activate the account:
+Χρησιμοποιήστε την ακόλουθη διαδρομή για να ενεργοποιήσετε τον λογαριασμό:
 {U_ACTIVATE}
 
 {EMAIL_SIG}
